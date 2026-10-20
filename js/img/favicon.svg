@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="6" y="4" width="52" height="58" rx="5" fill="#7a5536"/>
-  <rect x="11" y="10" width="42" height="48" fill="#efebe1"/>
-  <rect x="9" y="8" width="46" height="6" rx="2" fill="#5d6260"/>
-  <text x="32" y="24" font-family="Arial Narrow, Arial, sans-serif" font-size="8" font-weight="700" fill="#bd261e" text-anchor="middle" letter-spacing="1">СЕНТ</text>
-  <text x="32" y="54" font-family="Arial Narrow, Arial, sans-serif" font-size="32" font-weight="700" fill="#1e1c19" text-anchor="middle">3</text>
-</svg>
