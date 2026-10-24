@@ -30,9 +30,10 @@
   <header class="top">
     <h1>Вечное 3 сентября</h1>
     <p id="outside">За окном какое-то другое число. Здесь как всегда.</p>
+    <p id="visits" class="visits"></p>
   </header>
 
-  <div class="mount">
+  <div class="mount skin-tear wall" id="mount">
     <div class="nail" aria-hidden="true"></div>
     <div class="hang" id="hang">
       <svg viewBox="0 0 200 40" aria-hidden="true">
@@ -40,14 +41,16 @@
         <line x1="100" y1="2" x2="178" y2="40" stroke="currentColor" stroke-width="1.5"/>
       </svg>
       <div class="board" id="board">
+        <div class="garland" aria-hidden="true"></div>
         <div class="block" id="block">
           <div class="clip"></div>
-          <div class="stack">
+          <div class="stack" id="stack">
             <div class="sheet" id="sheet" role="button" tabindex="0" aria-label="Оторвать лист календаря"></div>
           </div>
         </div>
       </div>
     </div>
+    <div class="shelf" aria-hidden="true"></div>
   </div>
 
   <div class="counter">
@@ -56,7 +59,7 @@
       <div class="lbl">листов оторвано</div>
     </div>
     <div class="right">
-      <div class="big">365</div>
+      <div class="big" id="b365">365</div>
       <div class="lbl">осталось в блоке</div>
     </div>
   </div>
@@ -68,6 +71,7 @@
     <button id="tear" class="primary" type="button">Оторвать лист</button>
     <div class="row2">
       <button id="sound" class="small" type="button">Звук: вкл</button>
+      <button id="flipBtn" class="small" type="button">Перевернуть</button>
       <button id="share" class="small" type="button">Похвастаться</button>
     </div>
   </div>
@@ -85,18 +89,55 @@
     <p class="pc-note" id="pcNote">Каждый день новая. На каждой есть ссылка на сайт.</p>
   </section>
 
+  <section class="skins-sec" aria-labelledby="skinsTitle">
+    <h2 id="skinsTitle">Календари</h2>
+    <div class="chips" id="skins"></div>
+    <button id="buy" class="small buy" type="button">Купить новый календарь</button>
+    <p class="pc-note">Новые модели открываются за достижения. Дата у всех одна.</p>
+  </section>
+
   <section>
     <h2>Достижения</h2>
     <div class="chips" id="chips"></div>
   </section>
 
   <section>
-    <h2 id="floorTitle">На полу</h2>
-    <div class="floor" id="floor"><div class="empty" id="floorEmpty">Пока чисто. Это ненадолго.</div></div>
+    <div class="floor-head">
+      <h2 id="floorTitle">На полу</h2>
+      <button id="burn" class="small burn" type="button" hidden>Сжечь кучу</button>
+    </div>
+    <div class="floor" id="floor">
+      <div class="empty" id="floorEmpty">Пока чисто. Это ненадолго.</div>
+      <div class="bin" id="bin" aria-label="Мусорное ведро"><div class="bin-fill" id="binFill"></div><span class="bin-n" id="binN">0</span></div>
+      <div class="flames" aria-hidden="true"></div>
+    </div>
+    <p class="pc-note">Листы с пола можно перетащить в ведро.</p>
   </section>
 
   <p class="foot">Сделано для тех, у кого календарь застрял. Листы не кончаются.</p>
 </main>
+
+<div class="overlay" id="parcel" hidden>
+  <div class="parcel-wrap">
+    <button class="box" id="box" type="button" aria-label="Открыть посылку">
+      <span class="box-item mini" id="boxItem">3</span>
+      <span class="box-lid"></span>
+      <span class="box-tape"></span>
+      <span class="box-label">ПОЧТА<br>Отправитель:<br>3 сентября</span>
+    </button>
+    <p class="parcel-msg" id="parcelMsg">Тапните, чтобы открыть</p>
+  </div>
+</div>
+
+<div class="overlay sleep" id="sleep" hidden>
+  <div class="sleep-in">
+    <div class="zzz" aria-hidden="true"><span>z</span><span>z</span><span>Z</span></div>
+    <p class="sleep-t">Разбудите меня, когда сентябрь закончится</p>
+    <p class="sleep-s">Календарь лёг спать до конца месяца.</p>
+    <button id="wake" class="primary" type="button">Разбудить</button>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="js/config.js"></script>
