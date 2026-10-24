@@ -2,10 +2,13 @@
 (() => {
   const C = window.SEP3_CONFIG || {};
 
-  // Проверка режимов без ожидания нужной даты: #sep2, #sep3, #aug29 в адресе.
-  const SIM = { sep2: [8, 2, 21, 40], sep3: [8, 3, 12, 0], aug29: [7, 29, 12, 0] }[location.hash.slice(1)];
+  // Проверка режимов без ожидания нужной даты: якорь в адресе (#sep2, #dec31 …). Список — в README.
+  const SIM = {
+    aug29: [7, 29, 12, 0], sep2: [8, 2, 21, 40], sep3: [8, 3, 12, 0], sep27: [8, 27, 12, 0],
+    oct1: [9, 1, 12, 0], dec31: [11, 31, 23, 59, 35], jan1: [0, 1, 12, 0]
+  }[location.hash.slice(1)];
   const t0 = Date.now();
-  const simStart = SIM ? new Date(new Date().getFullYear(), SIM[0], SIM[1], SIM[2], SIM[3]).getTime() : 0;
+  const simStart = SIM ? new Date(new Date().getFullYear(), SIM[0], SIM[1], SIM[2], SIM[3], SIM[4] || 0).getTime() : 0;
   const clock = () => SIM ? new Date(simStart + (Date.now() - t0)) : new Date();
 
   const siteUrl = C.siteUrl || (location.origin + location.pathname);
